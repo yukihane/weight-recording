@@ -12,6 +12,7 @@ interface UserInput {
 
 const InputAreaCompoenent = () => {
   const [date, setDate] = useState(new Date());
+  const [weight, setWeight] = useState("");
   return (
     <div>
       <div>
@@ -27,8 +28,16 @@ const InputAreaCompoenent = () => {
         />
       </div>
       <div>
-        <label htmlFor="weight">体重</label>
-        <input type="text" name="weight" id="weight" />
+        <label htmlFor="weight">体重(kg)</label>
+        <input
+          type="text"
+          name="weight"
+          id="weight"
+          value={weight}
+          onChange={(v) => {
+            setWeight(v.target.value);
+          }}
+        />
       </div>
       <div>
         <input type="button" value="登録" />
