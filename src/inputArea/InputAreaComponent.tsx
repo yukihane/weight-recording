@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import DatePicker, { registerLocale } from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import ja from "date-fns/locale/ja";
+
+registerLocale("ja", ja);
 
 interface UserInput {
   date: Date;
@@ -11,7 +16,15 @@ const InputAreaCompoenent = () => {
     <div>
       <div>
         <label htmlFor="date">計測日</label>
-        <input type="text" name="date" id="date" value={date.toString()} />
+        <DatePicker
+          id="date"
+          locale={ja}
+          dateFormat="yyyy/MM/dd"
+          selected={date}
+          onChange={(v) => {
+            if (v) setDate(v);
+          }}
+        />
       </div>
       <div>
         <label htmlFor="weight">体重</label>
