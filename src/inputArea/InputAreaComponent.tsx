@@ -41,7 +41,13 @@ const InputAreaCompoenent = () => {
         />
       </div>
       <div>
-        <input type="button" value="登録" />
+        <input
+          type="button"
+          value="登録"
+          onClick={(e) =>
+            /* TODO 登録処理 */ console.log(`date: ${date}, weight: ${weight}`)
+          }
+        />
       </div>
     </div>
   );
