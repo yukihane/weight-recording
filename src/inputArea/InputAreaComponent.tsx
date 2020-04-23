@@ -4,6 +4,8 @@ import { getToday } from "../util/DateUtil";
 
 import "react-datepicker/dist/react-datepicker.css";
 import ja from "date-fns/locale/ja";
+import { useDispatch } from "react-redux";
+import { register } from "../actions";
 
 registerLocale("ja", ja);
 
@@ -13,8 +15,9 @@ interface UserInput {
 }
 
 const InputAreaCompoenent = () => {
-  const [date, setDate] = useState<Date | null>(getToday());
+  const [date, setDate] = useState<Date>(getToday());
   const [weight, setWeight] = useState("");
+  const dispatch = useDispatch();
   return (
     <div>
       <div>
@@ -46,9 +49,12 @@ const InputAreaCompoenent = () => {
         <input
           type="button"
           value="登録"
-          onClick={(e) =>
-            /* TODO 登録処理 */ console.log(`date: ${date}, weight: ${weight}`)
-          }
+          onClick={(e) => {
+            const num = parseInt(weight);
+            /* TODO 数値かどうかのチェック */
+            dispatch(register({ date, weight: num }));
+            /* TODO 登録処理 */ console.log(`date: ${date}, weight: ${weight}`);
+          }}
         />
       </div>
     </div>
