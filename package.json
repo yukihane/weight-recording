@@ -57,12 +57,16 @@
     ]
   },
   "devDependencies": {
+    "@types/electron-devtools-installer": "^2.2.0",
     "@types/react-datepicker": "^2.11.0",
     "@types/react-redux": "^7.1.7",
     "@types/redux": "^3.6.0",
+    "@types/redux-devtools-extension": "^2.13.2",
     "concurrently": "^5.1.0",
     "electron": "^8.2.3",
     "electron-builder": "^22.5.1",
+    "electron-devtools-installer": "^3.0.0",
+    "redux-devtools-extension": "^2.13.8",
     "wait-on": "^4.0.2"
   }
 }
