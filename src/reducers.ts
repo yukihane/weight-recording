@@ -1,6 +1,7 @@
 import { Reducer, combineReducers } from "redux";
 import { WeightRecordState, initWeightRecordState } from "./types";
 import { WeightRecordActionType, WeightRecordAction } from "./actions";
+import { Selector } from "react-redux";
 
 const weightRecords: Reducer<WeightRecordState, WeightRecordAction> = (
   state,
