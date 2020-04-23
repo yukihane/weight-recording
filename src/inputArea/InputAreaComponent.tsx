@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
+import { getToday } from "../util/DateUtil";
+
 import "react-datepicker/dist/react-datepicker.css";
 import ja from "date-fns/locale/ja";
 
@@ -11,7 +13,7 @@ interface UserInput {
 }
 
 const InputAreaCompoenent = () => {
-  const [date, setDate] = useState<Date | null>(new Date());
+  const [date, setDate] = useState<Date | null>(getToday());
   const [weight, setWeight] = useState("");
   return (
     <div>
@@ -23,7 +25,7 @@ const InputAreaCompoenent = () => {
           dateFormat="yyyy/MM/dd"
           selected={date}
           onChange={(v) => {
-            const newDate = v ? v : new Date();
+            const newDate = v ? v : getToday();
             setDate(newDate);
           }}
         />
