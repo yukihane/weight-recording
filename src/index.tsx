@@ -6,8 +6,9 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import rootReducer from "./reducers";
+import { devToolsEnhancer } from "redux-devtools-extension";
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, undefined, devToolsEnhancer({}));
 
 ReactDOM.render(
   <React.StrictMode>
