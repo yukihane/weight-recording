@@ -11,7 +11,7 @@ interface UserInput {
 }
 
 const InputAreaCompoenent = () => {
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState<Date | null>(new Date());
   const [weight, setWeight] = useState("");
   return (
     <div>
@@ -23,7 +23,8 @@ const InputAreaCompoenent = () => {
           dateFormat="yyyy/MM/dd"
           selected={date}
           onChange={(v) => {
-            if (v) setDate(v);
+            const newDate = v ? v : new Date();
+            setDate(newDate);
           }}
         />
       </div>
